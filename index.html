@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>CPU Scheduling Algorithms</title>
+
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+<h1>CPU SCHEDULING ALGORITHMS — Visualiser & Evaluator</h1>
+<div class="info">Interactive: add / edit / remove processes — evaluate algorithms for students</div>
+</header>
+
+<main class="container">
+
+<section class="panel" aria-labelledby="processes-heading">
+
+<h2 id="processes-heading">Processes</h2>
+
+<table id="processTable">
+<thead>
+<tr>
+<th>Process ID</th>
+<th>Burst Time</th>
+<th>Arrival Time</th>
+<th>Priority</th>
+</tr>
+</thead>
+
+<tbody>
+<tr><td>1</td><td>50</td><td>0</td><td>1</td></tr>
+<tr><td>2</td><td>30</td><td>10</td><td>2</td></tr>
+</tbody>
+</table>
+
+<div class="muted">Start with two processes. Use the controls below to add, edit or remove processes.</div>
+
+<div class="controls">
+
+<button class="btn add" id="btnAdd">Add Process</button>
+<button class="btn edit" id="btnEdit">Edit Process</button>
+<button class="btn remove" id="btnRemove">Remove Process</button>
+
+<div style="margin-left:auto; display:flex; gap:8px; align-items:center;">
+
+<div class="algo-row">
+<label class="muted">Algorithm</label>
+<select id="algoSelect">
+<option value="FCFS">FCFS</option>
+<option value="SJF">SJF</option>
+<option value="PRIORITY">Priority</option>
+<option value="RR">Round Robin</option>
+</select>
+</div>
+
+<div class="algo-row" id="quantumRow" style="display:none;">
+<label class="muted">Time Quantum</label>
+<input id="quantumInput" type="number" min="1" value="10"/>
+</div>
+
+<button class="btn evaluate" id="btnEvaluate">Evaluate</button>
+<button class="btn visualise" id="btnVisualise">Visualise</button>
+
+</div>
+</div>
+
+<!-- VISUALIZER -->
+<div class="visualizer-panel">
+
+<h3>CPU Execution Timeline</h3>
+
+<div id="ganttChart" class="gantt"></div>
+
+</div>
+
+</section>
+
+<aside class="results">
+
+<h2>Results & Explanation</h2>
+
+<div id="resultsContent" class="small">
+
+<div class="result-block">
+<strong>How to use</strong>
+<p class="muted">
+Add or edit processes, choose algorithm, press Evaluate then Visualise.
+</p>
+</div>
+
+</div>
+
+</aside>
+
+</main>
+
+<script src="script.js"></script>
+
+</body>
+</html>
